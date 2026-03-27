@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cement Corporate Website
+
+A premium, enterprise-level corporate website concept for a major cement manufacturing company in the Middle East.
+
+This project focuses on building a modern, high-quality digital presence that reflects industrial strength, credibility, and investor trust.
+
+---
+
+## Overview
+
+This website redesign demonstrates how a traditional industrial company can be transformed into a modern, world-class digital brand.
+
+The design emphasizes:
+- Strong corporate identity
+- Clean and structured layout
+- Arabic-first (RTL) experience
+- Professional and investor-oriented presentation
+
+---
+
+## Features
+
+- Arabic RTL support with language toggle (AR / EN)
+- Component-based architecture (modular structure)
+- Modern UI with Tailwind CSS
+- Responsive design (desktop, tablet, mobile)
+- Clean and scalable code structure
+- Premium corporate styling
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- TypeScript
+- Lucide Icons
+
+---
+
+## Project Structure
+
+app/
+  components/
+    Navbar.tsx
+    Hero.tsx
+    Stats.tsx
+  page.tsx
+
+---
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally:
 
-```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Purpose
 
-## Learn More
+This project was built as part of my portfolio to demonstrate:
 
-To learn more about Next.js, take a look at the following resources:
+- Frontend architecture skills
+- Modern React / Next.js development
+- UI structuring and component design
+- Building scalable and maintainable applications
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Future Improvements
 
-## Deploy on Vercel
+- Additional pages (About, Products, Investor Relations)
+- Interactive navigation
+- Animations and transitions
+- CMS or API integration
+- Deployment (Vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+Feras Hababa  
+GitHub: https://github.com/FerasHB
