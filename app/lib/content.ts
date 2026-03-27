@@ -20,7 +20,7 @@ export const content = {
       { label: "سنة التأسيس", value: "2006" },
       { label: "الطاقة الإنتاجية", value: "3.2M+" },
       { label: "بدء الإنتاج", value: "2011" },
-      { label: "الموقع الاستراتيجي", value: "سوريا" },
+      { label: "الموقع", value: "أبو الشامات / ريف دمشق" },
     ],
     pillarsTitle: "ركائز الأعمال",
     pillars: [
@@ -63,7 +63,7 @@ export const content = {
       { label: "Established", value: "2006" },
       { label: "Annual Capacity", value: "3.2M+" },
       { label: "Operational Since", value: "2011" },
-      { label: "Strategic Location", value: "Syria" },
+      { label: "Location", value: "Abu Al-Shamat / Damascus Countryside" },
     ],
     pillarsTitle: "Business Pillars",
     pillars: [

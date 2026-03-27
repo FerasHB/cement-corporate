@@ -1,10 +1,40 @@
 "use client";
 
 import { ShieldCheck, Factory, BarChart3 } from "lucide-react";
+import { useReveal } from "../hooks/useReveal";
 
 type TrustSectionProps = {
   isAr: boolean;
 };
+
+function TrustCard({
+  icon: Icon,
+  title,
+  text,
+  delayClass,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  text: string;
+  delayClass: string;
+}) {
+  const ref = useReveal<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${delayClass} hover-lift rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm`}
+    >
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
+        <Icon className="h-5 w-5" />
+      </div>
+
+      <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
+
+      <p className="mt-3 text-sm leading-7 text-slate-300">{text}</p>
+    </div>
+  );
+}
 
 export default function TrustSection({ isAr }: TrustSectionProps) {
   const items = isAr
@@ -43,31 +73,20 @@ export default function TrustSection({ isAr }: TrustSectionProps) {
         },
       ];
 
+  const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-14 md:py-16">
       <div className="grid gap-6 lg:grid-cols-3">
-        {items.map((item) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={item.title}
-              className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
-                <Icon className="h-5 w-5" />
-              </div>
-
-              <h3 className="mt-5 text-xl font-semibold text-white">
-                {item.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-slate-300">
-                {item.text}
-              </p>
-            </div>
-          );
-        })}
+        {items.map((item, index) => (
+          <TrustCard
+            key={item.title}
+            icon={item.icon}
+            title={item.title}
+            text={item.text}
+            delayClass={delays[index] ?? ""}
+          />
+        ))}
       </div>
     </section>
   );

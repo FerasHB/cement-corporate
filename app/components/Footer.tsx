@@ -16,23 +16,23 @@ export default function Footer() {
         { label: "من نحن", href: "/about" },
         { label: "المنتجات", href: "/products" },
         { label: "علاقات المستثمرين", href: "/investors" },
-        { label: "اتصل بنا", href: "/contact" },
         { label: "الاستدامة", href: "/sustainability" },
+        { label: "اتصل بنا", href: "/contact" },
       ]
     : [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
         { label: "Products", href: "/products" },
         { label: "Investor Relations", href: "/investors" },
-        { label: "Contact", href: "/contact" },
         { label: "Sustainability", href: "/sustainability" },
+        { label: "Contact", href: "/contact" },
       ];
 
   return (
     <footer className="border-t border-white/10 bg-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
-          <div>
+          <div className="footer-card-premium rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
                 <Factory className="h-5 w-5 text-amber-300" />
@@ -53,7 +53,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="footer-card-premium rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
             <h3 className="text-sm font-semibold text-white">
               {isAr ? "روابط سريعة" : "Quick Links"}
             </h3>
@@ -63,7 +63,7 @@ export default function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block text-sm text-slate-400 transition hover:text-white"
+                  className="footer-link-premium block text-sm text-slate-400 hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="footer-card-premium rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
             <h3 className="text-sm font-semibold text-white">
               {isAr ? "معلومات التواصل" : "Contact Information"}
             </h3>
@@ -81,24 +81,24 @@ export default function Footer() {
                 <MapPin className="mt-0.5 h-4 w-4 text-amber-300" />
                 <span>
                   {isAr
-                    ? "الرياض، المملكة العربية السعودية"
-                    : "Riyadh, Saudi Arabia"}
+                    ? "يعفور، ريف دمشق، الجمهورية العربية السورية"
+                    : "Yafour, Damascus Countryside, Syrian Arab Republic"}
                 </span>
               </div>
 
               <div className="flex items-start gap-3 text-sm text-slate-400">
                 <Phone className="mt-0.5 h-4 w-4 text-amber-300" />
-                <span>+966 11 000 0000</span>
+                <span>+963 11 9798</span>
               </div>
 
               <div className="flex items-start gap-3 text-sm text-slate-400">
                 <Mail className="mt-0.5 h-4 w-4 text-amber-300" />
-                <span>info@ncc.example</span>
+                <span>info@albadiacement.com</span>
               </div>
             </div>
           </div>
 
-          <div>
+          <div className="footer-card-premium rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
             <h3 className="text-sm font-semibold text-white">
               {isAr ? "علاقات المستثمرين" : "Investor Relations"}
             </h3>
@@ -109,7 +109,12 @@ export default function Footer() {
                   ? "للاستفسارات المتعلقة بالمستثمرين والحوكمة والتقارير."
                   : "For investor, governance, and reporting-related inquiries."}
               </p>
-              <p>ir@ncc.example</p>
+              <a
+                href="mailto:investor.relations@albadiacement.com"
+                className="footer-link-premium inline-block hover:text-white"
+              >
+                investor.relations@albadiacement.com
+              </a>
             </div>
           </div>
         </div>
