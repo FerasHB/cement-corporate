@@ -17,6 +17,7 @@ export default function Footer() {
         { label: "المنتجات", href: "/products" },
         { label: "علاقات المستثمرين", href: "/investors" },
         { label: "اتصل بنا", href: "/contact" },
+        { label: "الاستدامة", href: "/sustainability" },
       ]
     : [
         { label: "Home", href: "/" },
@@ -24,6 +25,7 @@ export default function Footer() {
         { label: "Products", href: "/products" },
         { label: "Investor Relations", href: "/investors" },
         { label: "Contact", href: "/contact" },
+        { label: "Sustainability", href: "/sustainability" },
       ];
 
   return (
