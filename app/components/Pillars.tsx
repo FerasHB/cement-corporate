@@ -16,7 +16,7 @@ export default function Pillars({ t }: PillarsProps) {
   const icons = [Factory, Leaf, Landmark, Briefcase];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24">
+    <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
       <div className="mb-10">
         <h2 className="text-3xl font-semibold text-white md:text-5xl">
           {t.pillarsTitle}
