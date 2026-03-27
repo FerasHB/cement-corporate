@@ -13,45 +13,65 @@ export default function ContactPage() {
     ? [
         {
           title: "الاستفسارات العامة",
-          email: "info@ncc.example",
-          phone: "+966 11 000 0000",
+          email: "info@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
-          title: "المبيعات والدعم التجاري",
-          email: "sales@ncc.example",
-          phone: "+966 11 000 1111",
+          title: "دائرة علاقات العملاء",
+          email: "sales@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
           title: "علاقات المستثمرين",
-          email: "ir@ncc.example",
-          phone: "+966 11 000 2222",
+          email: "investor.relations@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
-          title: "الموارد البشرية",
-          email: "careers@ncc.example",
-          phone: "+966 11 000 3333",
+          title: "إدارة الموارد البشرية",
+          email: "careers@albadiacement.com",
+          phone: "+963 11 9798",
+        },
+        {
+          title: "إدارة المشتريات",
+          email: "procurement@albadiacement.com",
+          phone: "+963 11 9798",
+        },
+        {
+          title: "قسم الإعلام",
+          email: "communication@albadiacement.com",
+          phone: "+963 11 9798",
         },
       ]
     : [
         {
           title: "General Inquiries",
-          email: "info@ncc.example",
-          phone: "+966 11 000 0000",
+          email: "info@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
-          title: "Sales & Commercial Support",
-          email: "sales@ncc.example",
-          phone: "+966 11 000 1111",
+          title: "Customer Relations / Sales",
+          email: "sales@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
           title: "Investor Relations",
-          email: "ir@ncc.example",
-          phone: "+966 11 000 2222",
+          email: "investor.relations@albadiacement.com",
+          phone: "+963 11 9798",
         },
         {
           title: "Human Resources",
-          email: "careers@ncc.example",
-          phone: "+966 11 000 3333",
+          email: "careers@albadiacement.com",
+          phone: "+963 11 9798",
+        },
+        {
+          title: "Procurement",
+          email: "procurement@albadiacement.com",
+          phone: "+963 11 9798",
+        },
+        {
+          title: "Communications",
+          email: "communication@albadiacement.com",
+          phone: "+963 11 9798",
         },
       ];
 
@@ -88,12 +108,12 @@ export default function ContactPage() {
               <Building2 className="h-5 w-5" />
             </div>
             <h2 className="mt-5 text-xl font-semibold text-white">
-              {isAr ? "المقر الرئيسي" : "Head Office"}
+              {isAr ? "المكتب الرئيسي" : "Head Office"}
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
               {isAr
-                ? "الرياض، المملكة العربية السعودية"
-                : "Riyadh, Saudi Arabia"}
+                ? "يعفور، ريف دمشق، الجمهورية العربية السورية"
+                : "Yafour, Damascus Countryside, Syrian Arab Republic"}
             </p>
           </div>
 
@@ -105,7 +125,7 @@ export default function ContactPage() {
               {isAr ? "الهاتف العام" : "General Phone"}
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
-              +966 11 000 0000
+              +963 11 9798
             </p>
           </div>
 
@@ -116,8 +136,8 @@ export default function ContactPage() {
             <h2 className="mt-5 text-xl font-semibold text-white">
               {isAr ? "البريد الإلكتروني" : "Email"}
             </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              info@ncc.example
+            <p className="mt-3 text-sm leading-7 text-slate-300 break-all">
+              info@albadiacement.com
             </p>
           </div>
 
@@ -128,8 +148,8 @@ export default function ContactPage() {
             <h2 className="mt-5 text-xl font-semibold text-white">
               {isAr ? "علاقات المستثمرين" : "Investor Relations"}
             </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              ir@ncc.example
+            <p className="mt-3 text-sm leading-7 text-slate-300 break-all">
+              investor.relations@albadiacement.com
             </p>
           </div>
         </div>
@@ -144,8 +164,8 @@ export default function ContactPage() {
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
                 {isAr
-                  ? "يمكنكم إرسال استفساراتكم عبر النموذج التالي، وسيتم توجيهها إلى الفريق المختص."
-                  : "You may submit your inquiry through the form below, and it will be routed to the relevant team."}
+                  ? "يمكنكم إرسال استفساراتكم عبر النموذج التالي، وسيتم توجيهها إلى القسم المختص."
+                  : "You may submit your inquiry through the form below, and it will be routed to the relevant department."}
               </p>
             </div>
 
@@ -191,13 +211,19 @@ export default function ContactPage() {
                   <option>
                     {isAr ? "الاستفسارات العامة" : "General Inquiries"}
                   </option>
-                  <option>{isAr ? "المبيعات" : "Sales"}</option>
+                  <option>
+                    {isAr
+                      ? "دائرة علاقات العملاء"
+                      : "Customer Relations / Sales"}
+                  </option>
                   <option>
                     {isAr ? "علاقات المستثمرين" : "Investor Relations"}
                   </option>
                   <option>
-                    {isAr ? "الموارد البشرية" : "Human Resources"}
+                    {isAr ? "إدارة الموارد البشرية" : "Human Resources"}
                   </option>
+                  <option>{isAr ? "إدارة المشتريات" : "Procurement"}</option>
+                  <option>{isAr ? "قسم الإعلام" : "Communications"}</option>
                 </select>
               </div>
             </div>
@@ -236,26 +262,53 @@ export default function ContactPage() {
                     <div className="text-lg font-semibold text-white">
                       {item.title}
                     </div>
-                    <div className="mt-3 text-sm text-slate-300">
+                    <a
+                      href={`mailto:${item.email}`}
+                      className="mt-3 block text-sm text-slate-300 break-all hover:text-white"
+                    >
                       {item.email}
-                    </div>
-                    <div className="mt-1 text-sm text-slate-400">
+                    </a>
+                    <a
+                      href={`tel:${item.phone.replace(/\s+/g, "")}`}
+                      className="mt-1 block text-sm text-slate-400 hover:text-slate-200"
+                    >
                       {item.phone}
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-3">
-              <div className="flex min-h-[320px] items-center justify-center rounded-[24px] border border-dashed border-white/10 bg-slate-900/50 text-center text-slate-400">
-                <div>
-                  <MapPin className="mx-auto h-6 w-6 text-amber-300" />
-                  <div className="mt-3 text-sm">
-                    {isAr
-                      ? "منطقة خريطة المكتب والمصنع"
-                      : "Office and plant map area"}
-                  </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Head Office */}
+              <div className="rounded-[24px] overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps?q=Yafour+Damascus+Syria&output=embed"
+                  width="100%"
+                  height="260"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
+                <div className="p-4 text-sm text-slate-400 text-center">
+                  {isAr
+                    ? "المكتب الرئيسي - يعفور، ريف دمشق"
+                    : "Head Office - Yafour, Damascus Countryside"}
+                </div>
+              </div>
+
+              {/* Plant */}
+              <div className="rounded-[24px] overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps?q=Al+Badia+Cement+Plant+Syria&output=embed"
+                  width="100%"
+                  height="260"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
+                <div className="p-4 text-sm text-slate-400 text-center">
+                  {isAr
+                    ? "المصنع - منطقة أبو الشامات"
+                    : "Plant - Abu Al Shamat Area"}
                 </div>
               </div>
             </div>

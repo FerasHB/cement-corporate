@@ -1,5 +1,6 @@
 "use client";
 
+import TrustSection from "./components/TrustSection";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import Pillars from "./components/Pillars";
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <main dir={t.dir} className="bg-slate-950 text-white">
       <Hero t={t} isAr={isAr} />
+      <TrustSection isAr={isAr} />
       <Stats t={t} />
       <Pillars t={t} />
     </main>

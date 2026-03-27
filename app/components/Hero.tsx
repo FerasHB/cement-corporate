@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import Link from "next/link";
 type HeroProps = {
   t: {
     badge: string;
@@ -37,14 +37,20 @@ export default function Hero({ t, isAr }: HeroProps) {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <button className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
               {t.primary}
               <ArrowIcon className="h-4 w-4" />
-            </button>
+            </Link>
 
-            <button className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+            <Link
+              href="/contact"
+              className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
               {t.secondary}
-            </button>
+            </Link>
           </div>
         </div>
       </div>
