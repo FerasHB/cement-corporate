@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LocalizedLink from "./LocalizedLink";
 import { Factory, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import { content } from "../lib/content";
@@ -60,13 +60,13 @@ export default function Footer() {
 
             <div className="mt-4 flex flex-col gap-3">
               {navLinks.map((item) => (
-                <Link
+                <LocalizedLink
                   key={item.href}
                   href={item.href}
                   className="footer-link-premium block text-sm text-slate-400 hover:text-white"
                 >
                   {item.label}
-                </Link>
+                </LocalizedLink>
               ))}
             </div>
           </div>

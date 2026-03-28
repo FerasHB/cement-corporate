@@ -1,183 +1,355 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import {
-  FileText,
-  Landmark,
   ShieldCheck,
+  Landmark,
   BarChart3,
+  FileText,
   Mail,
+  ArrowLeft,
+  ArrowRight,
   Download,
 } from "lucide-react";
 import { useLanguage } from "../components/LanguageProvider";
 import { content } from "../lib/content";
+import { useReveal } from "../hooks/useReveal";
+
+function HighlightCard({
+  icon: Icon,
+  title,
+  text,
+  delayClass,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  text: string;
+  delayClass: string;
+}) {
+  const ref = useReveal<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${delayClass} hover-lift rounded-[30px] border border-white/10 bg-white/5 p-8`}
+    >
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
+        <Icon className="h-5 w-5" />
+      </div>
+
+      <h3 className="mt-6 text-2xl font-semibold text-white">{title}</h3>
+
+      <p className="mt-4 text-base leading-8 text-slate-300">{text}</p>
+    </div>
+  );
+}
+
+function DocumentCard({
+  title,
+  meta,
+  delayClass,
+}: {
+  title: string;
+  meta: string;
+  delayClass: string;
+}) {
+  const ref = useReveal<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${delayClass} hover-lift flex items-center justify-between rounded-[24px] border border-white/10 bg-white/5 p-5`}
+    >
+      <div>
+        <div className="text-lg font-semibold text-white">{title}</div>
+        <div className="mt-1 text-sm text-slate-400">{meta}</div>
+      </div>
+
+      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
+        <Download className="h-4 w-4" />
+      </div>
+    </div>
+  );
+}
+
+function FaqCard({
+  question,
+  answer,
+  delayClass,
+}: {
+  question: string;
+  answer: string;
+  delayClass: string;
+}) {
+  const ref = useReveal<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${delayClass} rounded-[24px] border border-white/10 bg-white/5 p-6`}
+    >
+      <h3 className="text-lg font-semibold text-white">{question}</h3>
+      <p className="mt-3 text-sm leading-7 text-slate-300">{answer}</p>
+    </div>
+  );
+}
 
 export default function InvestorsPage() {
   const { lang } = useLanguage();
   const t = content[lang];
   const isAr = lang === "ar";
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
+
+  const heroTextRef = useReveal<HTMLDivElement>();
+  const heroImageRef = useReveal<HTMLDivElement>();
+  const highlightsHeadingRef = useReveal<HTMLDivElement>();
+  const docsHeadingRef = useReveal<HTMLDivElement>();
+  const contactRef = useReveal<HTMLDivElement>();
+  const faqHeadingRef = useReveal<HTMLDivElement>();
 
   const highlights = isAr
     ? [
         {
+          icon: ShieldCheck,
           title: "الشفافية والإفصاح",
-          text: "نلتزم بتقديم معلومات واضحة ومنظمة تدعم ثقة المستثمرين وصناع القرار.",
+          text: "نهج مؤسسي يركز على وضوح المعلومات وتقديم محتوى منظم يخدم المستثمرين وأصحاب العلاقة.",
         },
         {
+          icon: Landmark,
           title: "الحوكمة المؤسسية",
-          text: "إطار حوكمة يعزز المساءلة والانضباط المؤسسي والاستدامة طويلة الأجل.",
+          text: "إطار حوكمة يدعم الانضباط، المساءلة، واتخاذ القرارات وفق معايير مؤسسية واضحة.",
         },
         {
+          icon: BarChart3,
           title: "النمو المستدام",
-          text: "نركز على الأداء المسؤول وبناء قيمة مستقرة للمساهمين على المدى الطويل.",
+          text: "تركيز على الأداء طويل الأمد وبناء الثقة عبر الجودة والاستمرارية والانضباط التشغيلي.",
         },
       ]
     : [
         {
+          icon: ShieldCheck,
           title: "Transparency & Disclosure",
-          text: "We are committed to clear and structured disclosures that support investor confidence and informed decision-making.",
+          text: "An enterprise approach focused on clear information and structured communication for investors and stakeholders.",
         },
         {
+          icon: Landmark,
           title: "Corporate Governance",
-          text: "A governance framework that strengthens accountability, discipline, and long-term sustainability.",
+          text: "A governance framework that supports accountability, discipline, and decision-making based on clear corporate standards.",
         },
         {
+          icon: BarChart3,
           title: "Sustainable Growth",
-          text: "We focus on responsible performance and stable long-term value creation for shareholders.",
+          text: "A focus on long-term performance and trust-building through quality, continuity, and operational discipline.",
         },
       ];
 
   const documents = isAr
     ? [
-        "التقرير السنوي 2025",
-        "النتائج المالية للربع الرابع",
-        "عرض المستثمرين",
-        "تقرير الحوكمة",
+        { title: "التقارير المالية", meta: "Financial Reports" },
+        { title: "الإعلانات والإفصاحات", meta: "Announcements & Disclosures" },
+        { title: "الحوكمة", meta: "Corporate Governance" },
       ]
     : [
-        "Annual Report 2025",
-        "Q4 Financial Results",
-        "Investor Presentation",
-        "Governance Report",
+        {
+          title: "Financial Reports",
+          meta: "Periodic reporting and financial information",
+        },
+        {
+          title: "Announcements & Disclosures",
+          meta: "Material updates and investor communications",
+        },
+        {
+          title: "Corporate Governance",
+          meta: "Governance framework and board-related information",
+        },
       ];
 
   const faq = isAr
     ? [
-        "كيف يمكن الوصول إلى التقارير المالية؟",
-        "أين يمكن الاطلاع على الإفصاحات والإعلانات؟",
-        "كيف يمكن التواصل مع فريق علاقات المستثمرين؟",
+        {
+          question: "كيف يمكن التواصل مع علاقات المستثمرين؟",
+          answer:
+            "يمكن التواصل عبر البريد الإلكتروني المخصص لعلاقات المستثمرين أو من خلال صفحة الاتصال.",
+        },
+        {
+          question: "أين يمكن العثور على المعلومات المالية؟",
+          answer:
+            "يتم عرض المواد المالية والتقارير والإفصاحات ضمن قسم علاقات المستثمرين.",
+        },
+        {
+          question: "هل تتوفر معلومات عن الحوكمة؟",
+          answer:
+            "نعم، تتضمن الصفحة أقساماً مخصصة للحوكمة والإفصاح المؤسسي والمعلومات ذات الصلة.",
+        },
       ]
     : [
-        "How can financial reports be accessed?",
-        "Where can disclosures and announcements be found?",
-        "How can the investor relations team be contacted?",
+        {
+          question: "How can investor relations be contacted?",
+          answer:
+            "Investor relations can be contacted through the dedicated email address or via the contact page.",
+        },
+        {
+          question: "Where can financial information be found?",
+          answer:
+            "Financial materials, reports, and disclosures are presented within the investor relations section.",
+        },
+        {
+          question: "Is governance information available?",
+          answer:
+            "Yes, the page includes sections dedicated to governance, disclosure, and related corporate information.",
+        },
       ];
+
+  const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 
   return (
     <main dir={t.dir} className="bg-slate-950 text-white">
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.16),transparent_25%),linear-gradient(180deg,#020617_0%,#020b2e_45%,#020617_100%)]" />
+        <div className="hero-bg-animate absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.22),transparent_28%),radial-gradient(circle_at_top,rgba(245,158,11,0.08),transparent_20%),linear-gradient(180deg,#020617_0%,#020b2e_45%,#020617_100%)]" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <div className="max-w-4xl">
+        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]" />
+
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 md:py-32 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div ref={heroTextRef} className="reveal reveal-delay-1">
             <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-300 backdrop-blur-sm">
               {isAr ? "علاقات المستثمرين" : "Investor Relations"}
             </div>
 
-            <h1 className="text-5xl font-semibold leading-tight tracking-tight text-white md:text-7xl">
+            <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-white md:text-7xl">
               {isAr
-                ? "ثقة استثمارية مبنية على الشفافية والحوكمة والنمو المسؤول"
-                : "Investor confidence built on transparency, governance, and responsible growth"}
+                ? "ثقة استثمارية مبنية على الشفافية والحوكمة"
+                : "Investor confidence built on transparency and governance"}
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
               {isAr
-                ? "نوفر منصة معلومات مؤسسية تدعم المستثمرين عبر الإفصاح المنظم، الحوكمة الواضحة، والتقارير التي تعكس قوة الأداء والانضباط التشغيلي."
-                : "We provide a structured corporate information platform for investors through disciplined disclosures, clear governance, and reporting that reflects resilient performance and operational discipline."}
+                ? "توفر شركة إسمنت البادية منصة معلومات مؤسسية منظمة تدعم المستثمرين وأصحاب العلاقة عبر الإفصاح والحوكمة والمعلومات ذات الصلة بالأداء المؤسسي."
+                : "Al Badia Cement provides a structured corporate information platform supporting investors and stakeholders through disclosure, governance, and enterprise-related information."}
             </p>
-          </div>
-        </div>
-      </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {highlights.map((item, index) => {
-            const icons = [ShieldCheck, Landmark, BarChart3];
-            const Icon = icons[index];
-
-            return (
-              <div
-                key={item.title}
-                className="rounded-[30px] border border-white/10 bg-white/5 p-8"
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="mailto:investor.relations@albadiacement.com"
+                className="button-premium inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-slate-950"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
-                  <Icon className="h-5 w-5" />
-                </div>
+                {isAr
+                  ? "تواصل مع علاقات المستثمرين"
+                  : "Contact Investor Relations"}
+                <ArrowIcon className="button-arrow h-4 w-4" />
+              </a>
 
-                <h2 className="mt-6 text-2xl font-semibold text-white">
-                  {item.title}
-                </h2>
-
-                <p className="mt-4 text-base leading-8 text-slate-300">
-                  {item.text}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-[30px] border border-white/10 bg-white/5 p-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
-              <FileText className="h-5 w-5" />
-            </div>
-
-            <h2 className="mt-6 text-3xl font-semibold text-white">
-              {isAr ? "مركز التحميل" : "Download Center"}
-            </h2>
-
-            <div className="mt-6 space-y-4">
-              {documents.map((doc) => (
-                <div
-                  key={doc}
-                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-slate-900/50 p-4"
-                >
-                  <span className="text-slate-200">{doc}</span>
-                  <Download className="h-4 w-4 text-amber-300" />
-                </div>
-              ))}
+              <Link
+                href="/contact"
+                className="button-premium inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                {isAr ? "صفحة الاتصال" : "Contact Page"}
+              </Link>
             </div>
           </div>
 
-          <div className="rounded-[30px] border border-white/10 bg-white/5 p-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
-              <Mail className="h-5 w-5" />
-            </div>
+          <div
+            ref={heroImageRef}
+            className="reveal reveal-delay-2 relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl shadow-black/30"
+          >
+            <div className="absolute inset-0 z-10 bg-gradient-to-tr from-slate-950/25 via-transparent to-white/5" />
+            <Image
+              src="/images/hero-planet-v2.jpg"
+              alt="Al Badia Cement facility"
+              width={1200}
+              height={900}
+              className="h-full w-full object-cover brightness-90"
+            />
+          </div>
+        </div>
+      </section>
 
-            <h2 className="mt-6 text-3xl font-semibold text-white">
-              {isAr ? "تواصل المستثمرين" : "Investor Contact"}
-            </h2>
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div ref={highlightsHeadingRef} className="reveal mb-10">
+          <h2 className="text-3xl font-semibold text-white md:text-5xl">
+            {isAr ? "مرتكزات علاقات المستثمرين" : "Investor Relations Pillars"}
+          </h2>
+        </div>
 
-            <p className="mt-4 text-base leading-8 text-slate-300">
-              {isAr
-                ? "فريق علاقات المستثمرين متاح للاستفسارات المتعلقة بالتقارير، الإفصاحات، والحوكمة المؤسسية."
-                : "Our investor relations team is available for inquiries related to reporting, disclosures, and corporate governance."}
-            </p>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {highlights.map((item, index) => (
+            <HighlightCard
+              key={item.title}
+              icon={item.icon}
+              title={item.title}
+              text={item.text}
+              delayClass={delays[index] ?? ""}
+            />
+          ))}
+        </div>
+      </section>
 
-            <div className="mt-8 space-y-4 rounded-2xl border border-white/10 bg-slate-900/50 p-5">
-              <div>
-                <div className="text-sm text-slate-400">
-                  {isAr ? "البريد الإلكتروني" : "Email"}
-                </div>
-                <div className="mt-1 text-white">ir@ncc.example</div>
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div ref={docsHeadingRef} className="reveal mb-10">
+          <h2 className="text-3xl font-semibold text-white md:text-5xl">
+            {isAr ? "مركز الوثائق" : "Document Center"}
+          </h2>
+        </div>
+
+        <div className="grid gap-5">
+          {documents.map((doc, index) => (
+            <DocumentCard
+              key={doc.title}
+              title={doc.title}
+              meta={doc.meta}
+              delayClass={delays[index] ?? ""}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div
+          ref={contactRef}
+          className="reveal rounded-[32px] border border-white/10 bg-gradient-to-r from-white/10 to-white/5 p-8 md:p-12"
+        >
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-300">
+                {isAr ? "بيانات التواصل" : "Investor Contact"}
               </div>
 
-              <div>
-                <div className="text-sm text-slate-400">
-                  {isAr ? "الهاتف" : "Phone"}
-                </div>
-                <div className="mt-1 text-white">+966 11 000 0000</div>
+              <h2 className="mt-6 text-3xl font-semibold text-white md:text-5xl">
+                {isAr
+                  ? "قنوات تواصل واضحة للمستثمرين وأصحاب العلاقة"
+                  : "Clear communication channels for investors and stakeholders"}
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+                {isAr
+                  ? "للاستفسارات المتعلقة بالإفصاحات أو الحوكمة أو المعلومات المؤسسية، يمكن التواصل مباشرة مع قسم علاقات المستثمرين."
+                  : "For disclosure, governance, or enterprise-related inquiries, investors may contact the investor relations department directly."}
+              </p>
+            </div>
+
+            <div className="rounded-[28px] border border-white/10 bg-slate-900/80 p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-amber-300">
+                <Mail className="h-5 w-5" />
+              </div>
+
+              <h3 className="mt-6 text-2xl font-semibold text-white">
+                {isAr ? "علاقات المستثمرين" : "Investor Relations"}
+              </h3>
+
+              <p className="mt-4 text-base leading-8 text-slate-300 break-all">
+                investor.relations@albadiacement.com
+              </p>
+
+              <p className="mt-2 text-sm text-slate-400">+963 11 9798</p>
+
+              <div className="mt-6">
+                <a
+                  href="mailto:investor.relations@albadiacement.com"
+                  className="button-premium inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950"
+                >
+                  {isAr ? "إرسال بريد إلكتروني" : "Send Email"}
+                  <ArrowIcon className="button-arrow h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -185,21 +357,21 @@ export default function InvestorsPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-28">
-        <div className="rounded-[32px] border border-white/10 bg-gradient-to-r from-white/10 to-white/5 p-8 md:p-12">
+        <div ref={faqHeadingRef} className="reveal mb-10">
           <h2 className="text-3xl font-semibold text-white md:text-5xl">
-            {isAr ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+            {isAr ? "أسئلة شائعة" : "Frequently Asked Questions"}
           </h2>
+        </div>
 
-          <div className="mt-8 grid gap-4">
-            {faq.map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 text-base text-slate-200"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {faq.map((item, index) => (
+            <FaqCard
+              key={item.question}
+              question={item.question}
+              answer={item.answer}
+              delayClass={delays[index] ?? ""}
+            />
+          ))}
         </div>
       </section>
     </main>

@@ -1,12 +1,13 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type Language = "ar" | "en";
 
 type LanguageContextType = {
   lang: Language;
-  setLang: React.Dispatch<React.SetStateAction<Language>>;
+  setLang: (lang: Language) => void;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -14,21 +15,36 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Language>("ar");
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
 
-  useEffect(() => {
-    const savedLang = localStorage.getItem("lang");
-    if (savedLang === "ar" || savedLang === "en") {
-      setLang(savedLang);
-    }
-  }, []);
+  const urlLang = searchParams.get("lang");
+  const lang: Language = urlLang === "en" ? "en" : "ar";
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
   }, [lang]);
 
+  useEffect(() => {
+    const hasLangInUrl = searchParams.get("lang");
+    const savedLang = localStorage.getItem("lang");
+
+    if (!hasLangInUrl && (savedLang === "ar" || savedLang === "en")) {
+      router.replace(`${pathname}?lang=${savedLang}`);
+    }
+  }, [pathname, router, searchParams]);
+
+  const setLang = (nextLang: Language) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("lang", nextLang);
+    router.replace(`${pathname}?${params.toString()}`);
+  };
+
+  const value = useMemo(() => ({ lang, setLang }), [lang]);
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

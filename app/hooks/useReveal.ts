@@ -20,14 +20,15 @@ export function useReveal<T extends HTMLElement>() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.intersectionRatio >= 0.12) {
+        if (entry.isIntersecting || entry.intersectionRatio > 0.05) {
           element.classList.add("visible");
         } else {
           element.classList.remove("visible");
         }
       },
       {
-        threshold: [0, 0.12, 0.2, 0.4],
+        threshold: [0, 0.05, 0.12, 0.2],
+        rootMargin: "0px 0px -5% 0px",
       }
     );
 

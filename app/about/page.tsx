@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 z-10 bg-gradient-to-tr from-slate-950/25 via-transparent to-white/5" />
 
             <Image
-              src="/images/about-plant.jpg"
+              src="/images/about-planet-v2.jpg"
               alt="Cement factory"
               width={1200}
               height={900}
