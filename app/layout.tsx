@@ -1,12 +1,13 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import { LanguageProvider } from "./components/LanguageProvider";
+import { Suspense } from "react";
+import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "Cement Corporate Website",
-  description: "Premium enterprise cement company website",
+  title: "Al Badia Cement",
+  description: "Corporate website concept for Al Badia Cement",
 };
 
 export default function RootLayout({
@@ -15,15 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-slate-950 text-white">
-        <LanguageProvider>
-          <div className="flex min-h-screen flex-col">
+    <html lang="ar">
+      <body>
+        <Suspense fallback={null}>
+          <LanguageProvider>
             <Navbar />
-            <div className="flex-1">{children}</div>
+            {children}
             <Footer />
-          </div>
-        </LanguageProvider>
+          </LanguageProvider>
+        </Suspense>
       </body>
     </html>
   );
