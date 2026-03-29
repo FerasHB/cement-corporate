@@ -2,7 +2,7 @@
 
 A modern, bilingual (Arabic / English) corporate website redesign for a large-scale cement manufacturing company.
 
-🔗 **Live Demo:** https://cement-corporate.vercel.app/?lang=ar
+🔗 **Live Demo:** https://cement-corporate.vercel.app
 
 ---
 
