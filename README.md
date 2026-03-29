@@ -1,89 +1,75 @@
-# Cement Corporate Website
+# 🏭 Al Badia Cement – Corporate Website Redesign
 
-A premium, enterprise-level corporate website concept for a major cement manufacturing company in the Middle East.
+A modern, bilingual (Arabic / English) corporate website redesign for a large-scale cement manufacturing company.
 
-This project focuses on building a modern, high-quality digital presence that reflects industrial strength, credibility, and investor trust.
-
----
-
-## Overview
-
-This website redesign demonstrates how a traditional industrial company can be transformed into a modern, world-class digital brand.
-
-The design emphasizes:
-- Strong corporate identity
-- Clean and structured layout
-- Arabic-first (RTL) experience
-- Professional and investor-oriented presentation
+🔗 **Live Demo:** https://cement-corporate.vercel.app/?lang=ar
 
 ---
 
-## Features
+## ✨ Overview
 
-- Arabic RTL support with language toggle (AR / EN)
-- Component-based architecture (modular structure)
-- Modern UI with Tailwind CSS
-- Responsive design (desktop, tablet, mobile)
-- Clean and scalable code structure
-- Premium corporate styling
+This project is a high-end redesign of an industrial corporate website.
+
+Focus:
+- Premium corporate design
+- Strong visual identity
+- Bilingual experience (RTL + LTR)
+- Responsive and modern UI
 
 ---
 
-## Tech Stack
+## 📸 Screenshots
+
+> ⚠️ Add your screenshots inside `/docs/` folder
+
+### Homepage
+![Homepage](./docs/home.png)
+
+### About Page
+![About](./docs/about.png)
+
+### Mobile View
+![Mobile](./docs/mobile.png)
+
+---
+
+## 🚀 Features
+
+- 🌍 Arabic / English language support
+- ↔️ RTL & LTR layouts
+- 📱 Fully responsive design
+- 🎯 Clean corporate UI
+- 🧭 Smart navigation system
+- 🎬 Smooth reveal animations
+- ⚡ Optimized performance with Next.js
+
+---
+
+## 🛠 Tech Stack
 
 - Next.js (App Router)
-- React
-- Tailwind CSS
 - TypeScript
-- Lucide Icons
+- Tailwind CSS
+- Vercel (Deployment)
 
 ---
 
-## Project Structure
+## 📦 Run locally
 
-app/
-  components/
-    Navbar.tsx
-    Hero.tsx
-    Stats.tsx
-  page.tsx
-
----
-
-## Getting Started
-
-To run the project locally:
-
+```bash
 npm install
 npm run dev
-
-Then open:
-http://localhost:3000
+```
 
 ---
 
-## Purpose
+## 🎯 Purpose
 
-This project was built as part of my portfolio to demonstrate:
-
-- Frontend architecture skills
-- Modern React / Next.js development
-- UI structuring and component design
-- Building scalable and maintainable applications
+This project was built as a professional portfolio piece and concept redesign for enterprise-level clients.
 
 ---
 
-## Future Improvements
-
-- Additional pages (About, Products, Investor Relations)
-- Interactive navigation
-- Animations and transitions
-- CMS or API integration
-- Deployment (Vercel)
-
----
-
-## Author
+## 👨‍💻 Author
 
 Feras Hababa  
 GitHub: https://github.com/FerasHB
