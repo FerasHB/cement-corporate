@@ -20,17 +20,17 @@ Focus:
 
 ## 📸 Screenshots
 
-> ⚠️ Add your screenshots inside `/docs/` folder
 
 ### Homepage
-![Homepage](./docs/home.png)
+<img src="./docs/home.png" width="800" />
 
 ### About Page
-![About](./docs/about.png)
+<img src="./docs/about.png" width="800" />
 
 ### Mobile View
-![Mobile](./docs/mobile.png)
-
+<p align="center">
+  <img src="./docs/mobile.png" width="300" />
+</p>
 ---
 
 ## 🚀 Features
